@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\AINSHAMS_SEMESTERS\semester 10\High performance computing\project\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\AINSHAMS_SEMESTERS\semester 10\High performance computing\project\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3E8D256C-CE52-3087-AB23-B66AD709E246}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,727 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.19045 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Microsoft (R) Build Engine version 16.11.1+3e40a09f8 for .NET Framework
+      Copyright (C) Microsoft Corporation. All rights reserved.
+      
+      Build started 5/4/2025 10:28:05 PM.
+      Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\4.0.0-rc3\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Creating directory "Debug\\CompilerIdC.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+      ClCompile:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc142.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\4.0.0-rc3\\CompilerIdC\\CompilerIdC.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
+      Done Building Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\4.0.0-rc3\\CompilerIdC\\CompilerIdC.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:02.08
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/4.0.0-rc3/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Microsoft (R) Build Engine version 16.11.1+3e40a09f8 for .NET Framework
+      Copyright (C) Microsoft Corporation. All rights reserved.
+      
+      Build started 5/4/2025 10:28:07 PM.
+      Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\4.0.0-rc3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Creating directory "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+      ClCompile:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc142.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\4.0.0-rc3\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
+      Done Building Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\4.0.0-rc3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:01.15
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/4.0.0-rc3/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:81 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-85y5gz"
+      binary: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-85y5gz"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-85y5gz'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_8cb7c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.1+3e40a09f8 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 5/4/2025 10:28:09 PM.
+        Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-85y5gz\\cmTC_8cb7c.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_8cb7c.dir\\Debug\\".
+          Creating directory "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-85y5gz\\Debug\\".
+          Creating directory "cmTC_8cb7c.dir\\Debug\\cmTC_8cb7c.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_8cb7c.dir\\Debug\\cmTC_8cb7c.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_8cb7c.dir\\Debug\\\\" /Fd"cmTC_8cb7c.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30136 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          CMakeCCompilerABI.c
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_8cb7c.dir\\Debug\\\\" /Fd"cmTC_8cb7c.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-85y5gz\\Debug\\cmTC_8cb7c.exe" /INCREMENTAL /ILK:"cmTC_8cb7c.dir\\Debug\\cmTC_8cb7c.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-85y5gz/Debug/cmTC_8cb7c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-85y5gz/Debug/cmTC_8cb7c.lib" /MACHINE:X64  /machine:x64 cmTC_8cb7c.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_8cb7c.vcxproj -> D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-85y5gz\\Debug\\cmTC_8cb7c.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_8cb7c.dir\\Debug\\cmTC_8cb7c.tlog\\unsuccessfulbuild".
+          Touching "cmTC_8cb7c.dir\\Debug\\cmTC_8cb7c.tlog\\cmTC_8cb7c.lastbuildstate".
+        Done Building Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-85y5gz\\cmTC_8cb7c.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:01.14
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:225 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'C': C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:262 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.29.30136.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:81 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-jr6ugy"
+      binary: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-jr6ugy"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-jr6ugy'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_6669f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.1+3e40a09f8 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 5/4/2025 10:28:11 PM.
+        Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jr6ugy\\cmTC_6669f.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_6669f.dir\\Debug\\".
+          Creating directory "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jr6ugy\\Debug\\".
+          Creating directory "cmTC_6669f.dir\\Debug\\cmTC_6669f.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_6669f.dir\\Debug\\cmTC_6669f.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6669f.dir\\Debug\\\\" /Fd"cmTC_6669f.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30136 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          CMakeCXXCompilerABI.cpp
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6669f.dir\\Debug\\\\" /Fd"cmTC_6669f.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jr6ugy\\Debug\\cmTC_6669f.exe" /INCREMENTAL /ILK:"cmTC_6669f.dir\\Debug\\cmTC_6669f.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-jr6ugy/Debug/cmTC_6669f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-jr6ugy/Debug/cmTC_6669f.lib" /MACHINE:X64  /machine:x64 cmTC_6669f.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_6669f.vcxproj -> D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jr6ugy\\Debug\\cmTC_6669f.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_6669f.dir\\Debug\\cmTC_6669f.tlog\\unsuccessfulbuild".
+          Touching "cmTC_6669f.dir\\Debug\\cmTC_6669f.tlog\\cmTC_6669f.lastbuildstate".
+        Done Building Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jr6ugy\\cmTC_6669f.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:01.16
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:225 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:262 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.29.30136.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindOpenMP.cmake:250 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindOpenMP.cmake:557 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:8 (find_package)"
+    description: "Detecting CXX OpenMP compiler info"
+    directories:
+      source: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-0kwylf"
+      binary: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-0kwylf"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "OpenMP_COMPILE_RESULT_CXX_openmp"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-0kwylf'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_acc2e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.1+3e40a09f8 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 5/4/2025 10:49:42 PM.
+        Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0kwylf\\cmTC_acc2e.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_acc2e.dir\\Debug\\".
+          Creating directory "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0kwylf\\Debug\\".
+          Creating directory "cmTC_acc2e.dir\\Debug\\cmTC_acc2e.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_acc2e.dir\\Debug\\cmTC_acc2e.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /openmp /Fo"cmTC_acc2e.dir\\Debug\\\\" /Fd"cmTC_acc2e.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /errorReport:queue "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0kwylf\\OpenMPTryFlag.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30136 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          OpenMPTryFlag.cpp
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /openmp /Fo"cmTC_acc2e.dir\\Debug\\\\" /Fd"cmTC_acc2e.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /errorReport:queue "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0kwylf\\OpenMPTryFlag.cpp"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0kwylf\\Debug\\cmTC_acc2e.exe" /INCREMENTAL /ILK:"cmTC_acc2e.dir\\Debug\\cmTC_acc2e.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-0kwylf/Debug/cmTC_acc2e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-0kwylf/Debug/cmTC_acc2e.lib" /MACHINE:X64  /machine:x64 cmTC_acc2e.dir\\Debug\\OpenMPTryFlag.obj
+          cmTC_acc2e.vcxproj -> D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0kwylf\\Debug\\cmTC_acc2e.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_acc2e.dir\\Debug\\cmTC_acc2e.tlog\\unsuccessfulbuild".
+          Touching "cmTC_acc2e.dir\\Debug\\cmTC_acc2e.tlog\\cmTC_acc2e.lastbuildstate".
+        Done Building Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0kwylf\\cmTC_acc2e.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.92
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindOpenMP.cmake:491 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindOpenMP.cmake:631 (_OPENMP_GET_SPEC_DATE)"
+      - "CMakeLists.txt:8 (find_package)"
+    description: "Detecting CXX OpenMP version"
+    directories:
+      source: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-t14cgp"
+      binary: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-t14cgp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "OpenMP_SPECTEST_CXX_"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-t14cgp'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_6b56d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.1+3e40a09f8 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 5/4/2025 10:49:43 PM.
+        Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t14cgp\\cmTC_6b56d.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_6b56d.dir\\Debug\\".
+          Creating directory "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t14cgp\\Debug\\".
+          Creating directory "cmTC_6b56d.dir\\Debug\\cmTC_6b56d.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_6b56d.dir\\Debug\\cmTC_6b56d.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /openmp /Fo"cmTC_6b56d.dir\\Debug\\\\" /Fd"cmTC_6b56d.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /errorReport:queue "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t14cgp\\OpenMPCheckVersion.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30136 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          OpenMPCheckVersion.cpp
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /openmp /Fo"cmTC_6b56d.dir\\Debug\\\\" /Fd"cmTC_6b56d.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /errorReport:queue "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t14cgp\\OpenMPCheckVersion.cpp"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t14cgp\\Debug\\cmTC_6b56d.exe" /INCREMENTAL /ILK:"cmTC_6b56d.dir\\Debug\\cmTC_6b56d.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-t14cgp/Debug/cmTC_6b56d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-t14cgp/Debug/cmTC_6b56d.lib" /MACHINE:X64  /machine:x64 cmTC_6b56d.dir\\Debug\\OpenMPCheckVersion.obj
+          cmTC_6b56d.vcxproj -> D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t14cgp\\Debug\\cmTC_6b56d.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_6b56d.dir\\Debug\\cmTC_6b56d.tlog\\unsuccessfulbuild".
+          Touching "cmTC_6b56d.dir\\Debug\\cmTC_6b56d.tlog\\cmTC_6b56d.lastbuildstate".
+        Done Building Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t14cgp\\cmTC_6b56d.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.63
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake:1286 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake:1330 (_MPI_try_staged_settings)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake:1653 (_MPI_check_lang_works)"
+      - "CMakeLists.txt:8 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-jgh7hz"
+      binary: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-jgh7hz"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-jgh7hz'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_463e7.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.1+3e40a09f8 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 5/4/2025 10:58:31 PM.
+        Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jgh7hz\\cmTC_463e7.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_463e7.dir\\Debug\\".
+          Creating directory "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jgh7hz\\Debug\\".
+          Creating directory "cmTC_463e7.dir\\Debug\\cmTC_463e7.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_463e7.dir\\Debug\\cmTC_463e7.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_463e7.dir\\Debug\\\\" /Fd"cmTC_463e7.dir\\Debug\\vc142.pdb" /external:W0 /Gd /TP /errorReport:queue  /external:I "C:/Program Files (x86)/Microsoft SDKs/MPI/Include" "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jgh7hz\\test_mpi.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30136 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          test_mpi.cpp
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_463e7.dir\\Debug\\\\" /Fd"cmTC_463e7.dir\\Debug\\vc142.pdb" /external:W0 /Gd /TP /errorReport:queue  /external:I "C:/Program Files (x86)/Microsoft SDKs/MPI/Include" "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jgh7hz\\test_mpi.cpp"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jgh7hz\\Debug\\cmTC_463e7.exe" /INCREMENTAL /ILK:"cmTC_463e7.dir\\Debug\\cmTC_463e7.ilk" /NOLOGO "C:\\Program Files (x86)\\Microsoft SDKs\\MPI\\Lib\\x64\\msmpi.lib" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-jgh7hz/Debug/cmTC_463e7.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-jgh7hz/Debug/cmTC_463e7.lib" /MACHINE:X64  /machine:x64 cmTC_463e7.dir\\Debug\\test_mpi.obj
+          cmTC_463e7.vcxproj -> D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jgh7hz\\Debug\\cmTC_463e7.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_463e7.dir\\Debug\\cmTC_463e7.tlog\\unsuccessfulbuild".
+          Touching "cmTC_463e7.dir\\Debug\\cmTC_463e7.tlog\\cmTC_463e7.lastbuildstate".
+        Done Building Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jgh7hz\\cmTC_463e7.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.67
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake:1286 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake:1680 (_MPI_try_staged_settings)"
+      - "CMakeLists.txt:8 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-wsrj3z"
+      binary: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-wsrj3z"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-wsrj3z'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_8ac0b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.1+3e40a09f8 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 5/4/2025 10:58:32 PM.
+        Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wsrj3z\\cmTC_8ac0b.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_8ac0b.dir\\Debug\\".
+          Creating directory "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wsrj3z\\Debug\\".
+          Creating directory "cmTC_8ac0b.dir\\Debug\\cmTC_8ac0b.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_8ac0b.dir\\Debug\\cmTC_8ac0b.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_8ac0b.dir\\Debug\\\\" /Fd"cmTC_8ac0b.dir\\Debug\\vc142.pdb" /external:W0 /Gd /TP /errorReport:queue  /external:I "C:/Program Files (x86)/Microsoft SDKs/MPI/Include" "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wsrj3z\\test_mpi.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30136 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          test_mpi.cpp
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_8ac0b.dir\\Debug\\\\" /Fd"cmTC_8ac0b.dir\\Debug\\vc142.pdb" /external:W0 /Gd /TP /errorReport:queue  /external:I "C:/Program Files (x86)/Microsoft SDKs/MPI/Include" "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wsrj3z\\test_mpi.cpp"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wsrj3z\\Debug\\cmTC_8ac0b.exe" /INCREMENTAL /ILK:"cmTC_8ac0b.dir\\Debug\\cmTC_8ac0b.ilk" /NOLOGO "C:\\Program Files (x86)\\Microsoft SDKs\\MPI\\Lib\\x64\\msmpi.lib" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-wsrj3z/Debug/cmTC_8ac0b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-wsrj3z/Debug/cmTC_8ac0b.lib" /MACHINE:X64  /machine:x64 cmTC_8ac0b.dir\\Debug\\test_mpi.obj
+          cmTC_8ac0b.vcxproj -> D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wsrj3z\\Debug\\cmTC_8ac0b.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_8ac0b.dir\\Debug\\cmTC_8ac0b.tlog\\unsuccessfulbuild".
+          Touching "cmTC_8ac0b.dir\\Debug\\cmTC_8ac0b.tlog\\cmTC_8ac0b.lastbuildstate".
+        Done Building Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wsrj3z\\cmTC_8ac0b.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.65
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake:1286 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake:1330 (_MPI_try_staged_settings)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake:1653 (_MPI_check_lang_works)"
+      - "CMakeLists.txt:8 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-2lvn99"
+      binary: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-2lvn99"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-2lvn99'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_494de.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.1+3e40a09f8 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 5/4/2025 10:58:46 PM.
+        Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2lvn99\\cmTC_494de.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_494de.dir\\Debug\\".
+          Creating directory "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2lvn99\\Debug\\".
+          Creating directory "cmTC_494de.dir\\Debug\\cmTC_494de.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_494de.dir\\Debug\\cmTC_494de.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_494de.dir\\Debug\\\\" /Fd"cmTC_494de.dir\\Debug\\vc142.pdb" /external:W0 /Gd /TP /errorReport:queue  /external:I "C:/Program Files (x86)/Microsoft SDKs/MPI/Include" "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2lvn99\\test_mpi.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30136 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          test_mpi.cpp
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_494de.dir\\Debug\\\\" /Fd"cmTC_494de.dir\\Debug\\vc142.pdb" /external:W0 /Gd /TP /errorReport:queue  /external:I "C:/Program Files (x86)/Microsoft SDKs/MPI/Include" "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2lvn99\\test_mpi.cpp"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2lvn99\\Debug\\cmTC_494de.exe" /INCREMENTAL /ILK:"cmTC_494de.dir\\Debug\\cmTC_494de.ilk" /NOLOGO "C:\\Program Files (x86)\\Microsoft SDKs\\MPI\\Lib\\x64\\msmpi.lib" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-2lvn99/Debug/cmTC_494de.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-2lvn99/Debug/cmTC_494de.lib" /MACHINE:X64  /machine:x64 cmTC_494de.dir\\Debug\\test_mpi.obj
+          cmTC_494de.vcxproj -> D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2lvn99\\Debug\\cmTC_494de.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_494de.dir\\Debug\\cmTC_494de.tlog\\unsuccessfulbuild".
+          Touching "cmTC_494de.dir\\Debug\\cmTC_494de.tlog\\cmTC_494de.lastbuildstate".
+        Done Building Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2lvn99\\cmTC_494de.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.66
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake:1286 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake:1680 (_MPI_try_staged_settings)"
+      - "CMakeLists.txt:8 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-ubi6cu"
+      binary: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-ubi6cu"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-ubi6cu'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_b1ff6.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.1+3e40a09f8 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 5/4/2025 10:58:47 PM.
+        Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ubi6cu\\cmTC_b1ff6.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_b1ff6.dir\\Debug\\".
+          Creating directory "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ubi6cu\\Debug\\".
+          Creating directory "cmTC_b1ff6.dir\\Debug\\cmTC_b1ff6.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_b1ff6.dir\\Debug\\cmTC_b1ff6.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_b1ff6.dir\\Debug\\\\" /Fd"cmTC_b1ff6.dir\\Debug\\vc142.pdb" /external:W0 /Gd /TP /errorReport:queue  /external:I "C:/Program Files (x86)/Microsoft SDKs/MPI/Include" "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ubi6cu\\test_mpi.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30136 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          test_mpi.cpp
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_b1ff6.dir\\Debug\\\\" /Fd"cmTC_b1ff6.dir\\Debug\\vc142.pdb" /external:W0 /Gd /TP /errorReport:queue  /external:I "C:/Program Files (x86)/Microsoft SDKs/MPI/Include" "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ubi6cu\\test_mpi.cpp"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ubi6cu\\Debug\\cmTC_b1ff6.exe" /INCREMENTAL /ILK:"cmTC_b1ff6.dir\\Debug\\cmTC_b1ff6.ilk" /NOLOGO "C:\\Program Files (x86)\\Microsoft SDKs\\MPI\\Lib\\x64\\msmpi.lib" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-ubi6cu/Debug/cmTC_b1ff6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-ubi6cu/Debug/cmTC_b1ff6.lib" /MACHINE:X64  /machine:x64 cmTC_b1ff6.dir\\Debug\\test_mpi.obj
+          cmTC_b1ff6.vcxproj -> D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ubi6cu\\Debug\\cmTC_b1ff6.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_b1ff6.dir\\Debug\\cmTC_b1ff6.tlog\\unsuccessfulbuild".
+          Touching "cmTC_b1ff6.dir\\Debug\\cmTC_b1ff6.tlog\\cmTC_b1ff6.lastbuildstate".
+        Done Building Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ubi6cu\\cmTC_b1ff6.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.65
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake:1286 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake:1330 (_MPI_try_staged_settings)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake:1653 (_MPI_check_lang_works)"
+      - "CMakeLists.txt:8 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-hvlosl"
+      binary: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-hvlosl"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-hvlosl'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_a1466.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.1+3e40a09f8 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 5/4/2025 11:08:20 PM.
+        Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hvlosl\\cmTC_a1466.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_a1466.dir\\Debug\\".
+          Creating directory "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hvlosl\\Debug\\".
+          Creating directory "cmTC_a1466.dir\\Debug\\cmTC_a1466.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_a1466.dir\\Debug\\cmTC_a1466.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a1466.dir\\Debug\\\\" /Fd"cmTC_a1466.dir\\Debug\\vc142.pdb" /external:W0 /Gd /TP /errorReport:queue  /external:I "C:/Program Files (x86)/Microsoft SDKs/MPI/Include" "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hvlosl\\test_mpi.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30136 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          test_mpi.cpp
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a1466.dir\\Debug\\\\" /Fd"cmTC_a1466.dir\\Debug\\vc142.pdb" /external:W0 /Gd /TP /errorReport:queue  /external:I "C:/Program Files (x86)/Microsoft SDKs/MPI/Include" "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hvlosl\\test_mpi.cpp"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hvlosl\\Debug\\cmTC_a1466.exe" /INCREMENTAL /ILK:"cmTC_a1466.dir\\Debug\\cmTC_a1466.ilk" /NOLOGO "C:\\Program Files (x86)\\Microsoft SDKs\\MPI\\Lib\\x64\\msmpi.lib" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-hvlosl/Debug/cmTC_a1466.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-hvlosl/Debug/cmTC_a1466.lib" /MACHINE:X64  /machine:x64 cmTC_a1466.dir\\Debug\\test_mpi.obj
+          cmTC_a1466.vcxproj -> D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hvlosl\\Debug\\cmTC_a1466.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_a1466.dir\\Debug\\cmTC_a1466.tlog\\unsuccessfulbuild".
+          Touching "cmTC_a1466.dir\\Debug\\cmTC_a1466.tlog\\cmTC_a1466.lastbuildstate".
+        Done Building Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hvlosl\\cmTC_a1466.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.74
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake:1286 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake:1680 (_MPI_try_staged_settings)"
+      - "CMakeLists.txt:8 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-qxuedk"
+      binary: "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-qxuedk"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-qxuedk'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_15541.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Microsoft (R) Build Engine version 16.11.1+3e40a09f8 for .NET Framework
+        Copyright (C) Microsoft Corporation. All rights reserved.
+        
+        Build started 5/4/2025 11:08:21 PM.
+        Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qxuedk\\cmTC_15541.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_15541.dir\\Debug\\".
+          Creating directory "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qxuedk\\Debug\\".
+          Creating directory "cmTC_15541.dir\\Debug\\cmTC_15541.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_15541.dir\\Debug\\cmTC_15541.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_15541.dir\\Debug\\\\" /Fd"cmTC_15541.dir\\Debug\\vc142.pdb" /external:W0 /Gd /TP /errorReport:queue  /external:I "C:/Program Files (x86)/Microsoft SDKs/MPI/Include" "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qxuedk\\test_mpi.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30136 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          test_mpi.cpp
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_15541.dir\\Debug\\\\" /Fd"cmTC_15541.dir\\Debug\\vc142.pdb" /external:W0 /Gd /TP /errorReport:queue  /external:I "C:/Program Files (x86)/Microsoft SDKs/MPI/Include" "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qxuedk\\test_mpi.cpp"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qxuedk\\Debug\\cmTC_15541.exe" /INCREMENTAL /ILK:"cmTC_15541.dir\\Debug\\cmTC_15541.ilk" /NOLOGO "C:\\Program Files (x86)\\Microsoft SDKs\\MPI\\Lib\\x64\\msmpi.lib" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-qxuedk/Debug/cmTC_15541.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/CMakeScratch/TryCompile-qxuedk/Debug/cmTC_15541.lib" /MACHINE:X64  /machine:x64 cmTC_15541.dir\\Debug\\test_mpi.obj
+          cmTC_15541.vcxproj -> D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qxuedk\\Debug\\cmTC_15541.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_15541.dir\\Debug\\cmTC_15541.tlog\\unsuccessfulbuild".
+          Touching "cmTC_15541.dir\\Debug\\cmTC_15541.tlog\\cmTC_15541.lastbuildstate".
+        Done Building Project "D:\\AINSHAMS_SEMESTERS\\semester 10\\High performance computing\\project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qxuedk\\cmTC_15541.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.68
+        
+      exitCode: 0
+...

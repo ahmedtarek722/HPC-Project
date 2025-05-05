@@ -1,0 +1,10 @@
+^D:\AINSHAMS_SEMESTERS\SEMESTER 10\HIGH PERFORMANCE COMPUTING\PROJECT\BUILD\CMAKEFILES\99A91A538139D82516E72D21BE1E77BA\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project" "-BD:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/Project.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
