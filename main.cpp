@@ -97,7 +97,7 @@ Mat kmeans1D(const Mat &gray, int K, int maxIters, double epsilon) {
 int main() {
     string inputPath = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/test.jpg";
     int K = 3;
-    string outputPath ="D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_test_compu1.jpg";
+    string outputPath ="D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_test_seq.jpg";
     int maxIters = 100;
     double epsilon = 1e-4;
 

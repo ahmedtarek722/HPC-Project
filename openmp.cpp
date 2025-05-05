@@ -117,7 +117,7 @@ Mat kmeans1D_OpenMP(const Mat &gray, int K, int maxIters = 100, double epsilon =
 int main() {
     string inputPath  = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/test.jpg";
     int K = 3;
-    string outputPath = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_test_compu2.jpg";
+    string outputPath = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_test_openMP.jpg";
 
     Mat img = imread(inputPath);
     if (img.empty()) {

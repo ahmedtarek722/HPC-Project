@@ -1,105 +1,110 @@
-#include <opencv2/opencv.hpp>
 #include <mpi.h>
-#include <iostream>
+#include <opencv2/opencv.hpp>
 #include <vector>
 #include <cmath>
 #include <limits>
+#include <iostream>
 
 using namespace cv;
 using namespace std;
 
 /**
- * Performs 1D K-Means on a local slice of the image.
- * All processes jointly compute the global means via MPI_Allreduce.
+ * Perform K-Means on each process’s local pixel chunk, synchronizing
+ * cluster means across all ranks via collective operations.
+ *
+ * @param localPixels   flattened grayscale intensities owned by this rank
+ * @param K             number of clusters
+ * @param maxIters      maximum iterations
+ * @param epsilon       convergence threshold
+ * @param comm          MPI communicator
+ * @return              a vector<uchar> of the same size as localPixels,
+ *                      containing the segmented intensities
  */
-Mat kmeans1D_mpi(const Mat& localGray, int K,
-                 int maxIters = 100, double epsilon = 1e-4)
+vector<uchar> kmeans1D_mpi(const vector<uchar>& localPixels,
+                           int                          K,
+                           int                          maxIters,
+                           double                       epsilon,
+                           MPI_Comm                     comm)
 {
     int rank, size;
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-    MPI_Comm_size(MPI_COMM_WORLD, &size);
+    MPI_Comm_rank(comm, &rank);
+    MPI_Comm_size(comm, &size);
 
-    int localRows = localGray.rows;
-    int cols      = localGray.cols;
-    int localN    = localRows * cols;
+    int localCount = (int)localPixels.size();
+    // Convert to double
+    vector<double> pixels(localCount);
+    for (int i = 0; i < localCount; ++i)
+        pixels[i] = static_cast<double>(localPixels[i]);
 
-    // Flatten local pixels into a vector<double>
-    vector<double> pixels(localN);
-    for(int r=0; r<localRows; ++r)
-        for(int c=0; c<cols; ++c)
-            pixels[r*cols + c] = localGray.at<uchar>(r,c);
-
-    // Step 1: initialize means on rank 0, then broadcast
+    // Initialize means on rank 0 and broadcast
     vector<double> means(K);
-    if(rank == 0) {
-        double minVal, maxVal;
-        minMaxLoc(localGray, &minVal, &maxVal);
-        // Find global min/max across all ranks
-        double gMin, gMax;
-        MPI_Allreduce(&minVal, &gMin, 1, MPI_DOUBLE, MPI_MIN, MPI_COMM_WORLD);
-        MPI_Allreduce(&maxVal, &gMax, 1, MPI_DOUBLE, MPI_MAX, MPI_COMM_WORLD);
-        for(int k=0; k<K; ++k)
-            means[k] = gMin + (gMax - gMin) * (k + 0.5) / K;
+    if (rank == 0) {
+        // find global min/max by gathering from rank 0’s full image if needed
+        double minVal = *min_element(pixels.begin(), pixels.end());
+        double maxVal = *max_element(pixels.begin(), pixels.end());
+        for (int k = 0; k < K; ++k)
+            means[k] = minVal + (maxVal - minVal) * (k + 0.5) / K;
     }
-    MPI_Bcast(means.data(), K, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+    MPI_Bcast(means.data(), K, MPI_DOUBLE, 0, comm);
 
-    vector<int>    labels(localN);
+    vector<int>    labels(localCount);
     vector<double> localSums(K);
     vector<int>    localCounts(K);
+    vector<double> globalSums(K);
+    vector<int>    globalCounts(K);
 
-    // Main K-Means loop
-    for(int iter=0; iter<maxIters; ++iter) {
-        // — Assignment step (local only)
-        for(int i=0; i<localN; ++i) {
-            double bestD = numeric_limits<double>::max();
-            int bestK = 0;
-            for(int k=0; k<K; ++k) {
+    for (int iter = 0; iter < maxIters; ++iter) {
+        // 1) Assignment
+        for (int i = 0; i < localCount; ++i) {
+            double bestDist = numeric_limits<double>::max();
+            int    bestK    = 0;
+            for (int k = 0; k < K; ++k) {
                 double d = fabs(pixels[i] - means[k]);
-                if(d < bestD) { bestD = d; bestK = k; }
+                if (d < bestDist) {
+                    bestDist = d;
+                    bestK    = k;
+                }
             }
             labels[i] = bestK;
         }
 
-        // — Compute local sums & counts
-        fill(localSums.begin(), localSums.end(), 0.0);
+        // 2) Local accumulate
+        fill(localSums.begin(),   localSums.end(),   0.0);
         fill(localCounts.begin(), localCounts.end(), 0);
-        for(int i=0; i<localN; ++i) {
+        for (int i = 0; i < localCount; ++i) {
             int c = labels[i];
             localSums[c]   += pixels[i];
             localCounts[c] += 1;
         }
 
-        // — Reduce to global sums & counts
-        vector<double> globalSums(K);
-        vector<int>    globalCounts(K);
-        MPI_Allreduce(localSums.data(),   globalSums.data(),   K, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
-        MPI_Allreduce(localCounts.data(), globalCounts.data(), K, MPI_INT,    MPI_SUM, MPI_COMM_WORLD);
+        // 3) Global reduction
+        MPI_Allreduce(localSums.data(),   globalSums.data(),   K, MPI_DOUBLE, MPI_SUM, comm);
+        MPI_Allreduce(localCounts.data(), globalCounts.data(), K, MPI_INT,    MPI_SUM, comm);
 
-        // — Update means and check convergence
-        double maxShift = 0.0;
-        for(int k=0; k<K; ++k) {
-            if(globalCounts[k] > 0) {
+        // 4) Update means & track maximum shift
+        double localMaxShift = 0.0;
+        for (int k = 0; k < K; ++k) {
+            if (globalCounts[k] > 0) {
                 double newMean = globalSums[k] / globalCounts[k];
-                maxShift = max(maxShift, fabs(newMean - means[k]));
-                means[k] = newMean;
+                localMaxShift  = max(localMaxShift, fabs(newMean - means[k]));
+                means[k]       = newMean;
             }
         }
-        if(maxShift < epsilon) {
-            if(rank==0) 
-                cout << "Converged in " << iter+1 << " iterations.\n";
+
+        // 5) Check convergence across all ranks
+        double globalMaxShift;
+        MPI_Allreduce(&localMaxShift, &globalMaxShift, 1, MPI_DOUBLE, MPI_MAX, comm);
+        if (globalMaxShift < epsilon) {
+            if (rank == 0) cout << "Converged in " << iter+1 << " iterations.\n";
             break;
         }
     }
 
-    // Reconstruct local segmented image
-    Mat localSeg(localRows, cols, CV_8U);
-    for(int r=0; r<localRows; ++r) {
-        for(int c=0; c<cols; ++c) {
-            int idx = r*cols + c;
-            localSeg.at<uchar>(r,c) = 
-                static_cast<uchar>(round(means[ labels[idx] ]));
-        }
-    }
+    // Reconstruct segmented slice
+    vector<uchar> localSeg(localCount);
+    for (int i = 0; i < localCount; ++i)
+        localSeg[i] = static_cast<uchar>(round(means[labels[i]]));
+
     return localSeg;
 }
 
@@ -109,100 +114,87 @@ int main(int argc, char** argv) {
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-    // Adjust these paths or pass as arguments
-    const string inputPath  = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/test.jpg";
-    const string outputPath = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_mpi_test2.jpg";
-    const int    K          = 3;
-    const int    maxIters   = 100;
-    const double epsilon    = 1e-4;
+    // Paths and parameters
+    string inputPath  = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/test.jpg";
+    string outputPath = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_test_MPI.jpg";
+    int    K          = 3;
+    int    maxIters   = 100;
+    double epsilon    = 1e-4;
 
-    Mat gray;
-    int rows, cols;
-
-    // Rank 0 reads and broadcasts dimensions
-    if(rank == 0) {
+    // Only rank 0 loads and flattens the image
+    int rows = 0, cols = 0;
+    vector<uchar> allPixels;
+    if (rank == 0) {
         Mat img = imread(inputPath);
-        if(img.empty()) {
-            cerr << "Error: could not open " << inputPath << "\n";
-            MPI_Abort(MPI_COMM_WORLD, -1);
-        }
+        Mat gray;
         cvtColor(img, gray, COLOR_BGR2GRAY);
         rows = gray.rows;
         cols = gray.cols;
-    }
-    MPI_Bcast(&rows, 1, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Bcast(&cols, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
-    // Compute how many rows each rank gets
-    vector<int> sendcounts(size), displs(size);
-    int base = rows / size, rem = rows % size, offset = 0;
-    for(int i=0; i<size; ++i) {
-        int r = base + (i < rem ? 1 : 0);
-        sendcounts[i] = r * cols;
-        displs[i]      = offset * cols;
-        offset        += r;
-    }
-    int localCount = sendcounts[rank];
-
-    // Scatter the grayscale pixels
-    vector<uchar> localBuf(localCount);
-    if(rank == 0) {
-        vector<uchar> flat(rows * cols);
-        for(int r=0; r<rows; ++r)
-            for(int c=0; c<cols; ++c)
-                flat[r*cols + c] = gray.at<uchar>(r,c);
-
-        MPI_Scatterv(flat.data(), sendcounts.data(), displs.data(),
-                     MPI_UNSIGNED_CHAR,
-                     localBuf.data(), localCount, MPI_UNSIGNED_CHAR,
-                     0, MPI_COMM_WORLD);
-    } else {
-        MPI_Scatterv(nullptr, nullptr, nullptr, MPI_UNSIGNED_CHAR,
-                     localBuf.data(), localCount, MPI_UNSIGNED_CHAR,
-                     0, MPI_COMM_WORLD);
+        allPixels.resize(rows * cols);
+        for (int r = 0; r < rows; ++r) {
+            memcpy(allPixels.data() + r*cols, gray.ptr<uchar>(r), cols);
+        }
     }
 
-    // Build local Mat and run parallel k-means
-    int localRows = localCount / cols;
-    Mat localGray(localRows, cols, CV_8U, localBuf.data());
+    // Broadcast image dimensions to all ranks
+    MPI_Bcast(&rows, 1, MPI_INT,  0, MPI_COMM_WORLD);
+    MPI_Bcast(&cols, 1, MPI_INT,  0, MPI_COMM_WORLD);
 
+    // Compute scatter counts & displacements on rank 0
+    vector<int> sendCounts(size), displs(size);
+    if (rank == 0) {
+        int base = rows / size;
+        int rem  = rows % size;
+        int offset = 0;
+        for (int i = 0; i < size; ++i) {
+            int r = base + (i < rem ? 1 : 0);
+            sendCounts[i] = r * cols;
+            displs[i]     = offset;
+            offset       += sendCounts[i];
+        }
+    }
 
-
+    // Synchronize before timing
     MPI_Barrier(MPI_COMM_WORLD);
-    double t0 = MPI_Wtime();
+    double t_start = MPI_Wtime();
 
-    Mat localSeg = kmeans1D_mpi(localGray, K, maxIters, epsilon);
+    // Scatter the row‐wise chunks
+    int localCount;
+    MPI_Scatter(sendCounts.data(), 1, MPI_INT,
+                &localCount,      1, MPI_INT,
+                0, MPI_COMM_WORLD);
 
-    MPI_Barrier(MPI_COMM_WORLD);
-    double t1 = MPI_Wtime();
-    double localComputeTime = t1 - t0;
+    vector<uchar> localPixels(localCount);
+    MPI_Scatterv(allPixels.data(), sendCounts.data(), displs.data(),
+                 MPI_UNSIGNED_CHAR,
+                 localPixels.data(), localCount, MPI_UNSIGNED_CHAR,
+                 0, MPI_COMM_WORLD);
 
-    // Reduce to get the maximum compute time
-    double maxComputeTime = 0.0;
-    MPI_Reduce(&localComputeTime, &maxComputeTime, 1,
-               MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
+    // Perform the distributed K-Means
+    auto localSeg = kmeans1D_mpi(localPixels, K, maxIters, epsilon, MPI_COMM_WORLD);
 
-
-
-    // Gather segmented chunks back to rank 0
-    vector<uchar> localSegBuf(localCount);
-    memcpy(localSegBuf.data(), localSeg.data, localCount);
+    // Gather the segmented chunks back
     vector<uchar> fullSeg;
-    if(rank == 0)
-        fullSeg.resize(rows * cols);
+    if (rank == 0) fullSeg.resize(rows * cols);
 
-    MPI_Gatherv(localSegBuf.data(), localCount, MPI_UNSIGNED_CHAR,
-                rank == 0 ? fullSeg.data() : nullptr,
-                sendcounts.data(), displs.data(),
-                MPI_UNSIGNED_CHAR, 0, MPI_COMM_WORLD);
+    MPI_Gatherv(localSeg.data(),    localCount, MPI_UNSIGNED_CHAR,
+                fullSeg.data(),      sendCounts.data(), displs.data(),
+                MPI_UNSIGNED_CHAR,   0, MPI_COMM_WORLD);
 
-    // Rank 0 writes the final image
-    if(rank == 0) {
-        Mat seg(rows, cols, CV_8U, fullSeg.data());
-        imwrite(outputPath, seg);
-        cout << "Segmented image saved to " << outputPath << "\n\n"
-        << "K-Means compute time (max across ranks): "
-        << maxComputeTime << " seconds.\n";
+    // Synchronize and stop timing
+    MPI_Barrier(MPI_COMM_WORLD);
+    double t_end = MPI_Wtime();
+
+    if (rank == 0) {
+        // Reconstruct and save the segmented image
+        Mat out(rows, cols, CV_8U, fullSeg.data());
+        imwrite(outputPath, out);
+        cout << "Segmented image saved to " << outputPath << "\n";
+
+        // Report total parallel runtime
+        cout << "Total MPI segmentation time: "
+             << (t_end - t_start) << " seconds." << endl;
     }
 
     MPI_Finalize();
