@@ -6,6 +6,7 @@
 
 using namespace cv;
 using namespace std;
+using Clock = chrono::high_resolution_clock; 
 
 /**
  * Performs 1D K-Means clustering on grayscale pixel intensities.
@@ -96,7 +97,7 @@ Mat kmeans1D(const Mat &gray, int K, int maxIters, double epsilon) {
 int main() {
     string inputPath = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/test.jpg";
     int K = 3;
-    string outputPath ="D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_test.jpg";
+    string outputPath ="D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_test_compu1.jpg";
     int maxIters = 100;
     double epsilon = 1e-4;
 
@@ -109,8 +110,18 @@ int main() {
     Mat gray;
     cvtColor(img, gray, COLOR_BGR2GRAY);
 
+    //Start timer0 to calculate computational time 
+    auto t0 = Clock::now();
+
     // Run K-Means segmentation
     Mat segmented = kmeans1D(gray, K, maxIters, epsilon);
+
+    //Start timer1 to calculate computational time 
+    auto t1 = Clock::now();
+    chrono::duration<double> elapsed = t1 - t0;
+    cout << "Segmentation took " 
+         << elapsed.count() << " seconds.\n";
+
 
     // Save result
     imwrite(outputPath, segmented);

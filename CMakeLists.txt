@@ -1,11 +1,23 @@
 cmake_minimum_required(VERSION 3.10)
-project(Project)
+project(Project LANGUAGES CXX)
 
-# Find OpenCV in standard locations
+# -- Find OpenCV
 find_package(OpenCV REQUIRED)
 
-# Print some information about OpenCV for debugging
-include_directories(${OpenCV_INCLUDE_DIRS})
+# -- Find MPI
+find_package(MPI REQUIRED COMPONENTS CXX)
 
-add_executable(Project main.cpp)
-target_link_libraries(Project ${OpenCV_LIBS})
+# -- Include directories
+include_directories(
+  ${OpenCV_INCLUDE_DIRS}
+  ${MPI_CXX_INCLUDE_DIRS}
+)
+
+# -- Executable
+add_executable(Project mpi.cpp)
+
+# -- Link libraries
+target_link_libraries(Project PRIVATE
+  ${OpenCV_LIBS}
+  ${MPI_CXX_LIBRARIES}
+)

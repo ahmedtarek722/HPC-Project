@@ -7,7 +7,7 @@
 
 using namespace cv;
 using namespace std;
-
+using Clock = chrono::high_resolution_clock; 
 /**
  * Performs 1D K-Means clustering on grayscale pixel intensities (OpenMP parallelized).
  * Input: grayscale image (CV_8U)
@@ -45,8 +45,8 @@ Mat kmeans1D_OpenMP(const Mat &gray, int K, int maxIters = 100, double epsilon =
         // Assignment step (parallel)
         #pragma omp parallel for schedule(static)
         for (int i = 0; i < N; ++i) {
-            int tid = omp_get_thread_num();
-            cout << "hi " << tid <<endl;
+           // int tid = omp_get_thread_num();
+           // cout << "hi " << tid <<endl;
             double bestDist = numeric_limits<double>::max();
             int bestK = 0;
             for (int k = 0; k < K; ++k) {
@@ -117,7 +117,7 @@ Mat kmeans1D_OpenMP(const Mat &gray, int K, int maxIters = 100, double epsilon =
 int main() {
     string inputPath  = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/test.jpg";
     int K = 3;
-    string outputPath = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_test.jpg";
+    string outputPath = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_test_compu2.jpg";
 
     Mat img = imread(inputPath);
     if (img.empty()) {
@@ -126,8 +126,17 @@ int main() {
     }
     Mat gray; cvtColor(img, gray, COLOR_BGR2GRAY);
 
+    //Start timer0 to calculate computational time 
+    auto t0 = Clock::now();
+
     // Run OpenMP K-Means
     Mat segmented = kmeans1D_OpenMP(gray, K);
+
+    //Start timer1 to calculate computational time 
+    auto t1 = Clock::now();
+    chrono::duration<double> elapsed = t1 - t0;
+    cout << "Segmentation took " 
+         << elapsed.count() << " seconds.\n";
 
     imwrite(outputPath, segmented);
     cout << "Segmented image saved to " << outputPath << endl;

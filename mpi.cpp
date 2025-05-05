@@ -111,7 +111,7 @@ int main(int argc, char** argv) {
 
     // Adjust these paths or pass as arguments
     const string inputPath  = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/test.jpg";
-    const string outputPath = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_mpi_test.jpg";
+    const string outputPath = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_mpi_test2.jpg";
     const int    K          = 3;
     const int    maxIters   = 100;
     const double epsilon    = 1e-4;
@@ -165,7 +165,24 @@ int main(int argc, char** argv) {
     // Build local Mat and run parallel k-means
     int localRows = localCount / cols;
     Mat localGray(localRows, cols, CV_8U, localBuf.data());
+
+
+
+    MPI_Barrier(MPI_COMM_WORLD);
+    double t0 = MPI_Wtime();
+
     Mat localSeg = kmeans1D_mpi(localGray, K, maxIters, epsilon);
+
+    MPI_Barrier(MPI_COMM_WORLD);
+    double t1 = MPI_Wtime();
+    double localComputeTime = t1 - t0;
+
+    // Reduce to get the maximum compute time
+    double maxComputeTime = 0.0;
+    MPI_Reduce(&localComputeTime, &maxComputeTime, 1,
+               MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
+
+
 
     // Gather segmented chunks back to rank 0
     vector<uchar> localSegBuf(localCount);
@@ -183,7 +200,9 @@ int main(int argc, char** argv) {
     if(rank == 0) {
         Mat seg(rows, cols, CV_8U, fullSeg.data());
         imwrite(outputPath, seg);
-        cout << "Segmented image saved to " << outputPath << "\n";
+        cout << "Segmented image saved to " << outputPath << "\n\n"
+        << "K-Means compute time (max across ranks): "
+        << maxComputeTime << " seconds.\n";
     }
 
     MPI_Finalize();
