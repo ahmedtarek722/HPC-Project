@@ -8,24 +8,20 @@
 using namespace cv;
 using namespace std;
 using Clock = chrono::high_resolution_clock; 
-/**
- * Performs 1D K-Means clustering on grayscale pixel intensities (OpenMP parallelized).
- * Input: grayscale image (CV_8U)
- * Output: segmented grayscale image where each pixel is replaced by its cluster mean.
- */
+
 Mat kmeans1D_OpenMP(const Mat &gray, int K, int maxIters = 100, double epsilon = 1e-4) {
-    int rows = gray.rows;
-    int cols = gray.cols;
-    int N = rows * cols;
+    int rows= gray.rows;
+    int cols= gray.cols;
+    int N= rows * cols;
 
     // Flatten pixels into vector<double>
     vector<double> pixels(N);
     #pragma omp parallel for schedule(static)
-    for (int r = 0; r < rows; ++r) {
-        const uchar* ptr = gray.ptr<uchar>(r);
-        int base = r * cols;
-        for (int c = 0; c < cols; ++c) {
-            pixels[base + c] = static_cast<double>(ptr[c]);
+    for (int r= 0; r< rows; ++r) {
+        const uchar* ptr= gray.ptr<uchar>(r);
+        int base= r * cols;
+        for (int c= 0; c < cols; ++c) {
+            pixels[base + c]= static_cast<double>(ptr[c]);
         }
     }
 
@@ -33,7 +29,7 @@ Mat kmeans1D_OpenMP(const Mat &gray, int K, int maxIters = 100, double epsilon =
     double minVal, maxVal;
     minMaxLoc(gray, &minVal, &maxVal);
     vector<double> means(K);
-    for (int k = 0; k < K; ++k) {
+    for (int k= 0; k < K; ++k) {
         means[k] = minVal + (maxVal - minVal) * (k + 0.5) / K;
     }
 
@@ -110,14 +106,13 @@ Mat kmeans1D_OpenMP(const Mat &gray, int K, int maxIters = 100, double epsilon =
             ptr[c] = static_cast<uchar>(round(means[labels[base + c]]));
         }
     }
-
     return seg;
 }
 
 int main() {
-    string inputPath  = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/test.jpg";
+    string inputPath= "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/test.jpg";
     int K = 3;
-    string outputPath = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_test_openMP.jpg";
+    string outputPath= "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_test_openMP.jpg";
 
     Mat img = imread(inputPath);
     if (img.empty()) {

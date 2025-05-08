@@ -1,0 +1,24 @@
+^D:\AINSHAMS_SEMESTERS\SEMESTER 10\HIGH PERFORMANCE COMPUTING\PROJECT\BUILD\CMAKEFILES\99A91A538139D82516E72D21BE1E77BA\RUN.RULE
+setlocal
+cd "D:\AINSHAMS_SEMESTERS\semester 10\High performance computing\project\build"
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft MPI\Bin\mpiexec.exe" -n 4 "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/Debug/Project.exe"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\AINSHAMS_SEMESTERS\SEMESTER 10\HIGH PERFORMANCE COMPUTING\PROJECT\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project" "-BD:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build" --check-stamp-file "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

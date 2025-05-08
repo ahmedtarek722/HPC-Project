@@ -8,11 +8,6 @@ using namespace cv;
 using namespace std;
 using Clock = chrono::high_resolution_clock; 
 
-/**
- * Performs 1D K-Means clustering on grayscale pixel intensities.
- * Input: grayscale image (CV_8U)
- * Output: segmented grayscale image where each pixel is replaced by its cluster mean.
- */
 Mat kmeans1D(const Mat &gray, int K, int maxIters, double epsilon) {
     int rows = gray.rows;
     int cols = gray.cols;
