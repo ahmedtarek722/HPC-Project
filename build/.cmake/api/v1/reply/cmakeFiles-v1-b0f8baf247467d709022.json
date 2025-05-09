@@ -163,22 +163,12 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.0/Modules/FindMPI.cmake"
+			"path" : "C:/Program Files/CMake/share/cmake-4.0/Modules/FindOpenMP.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.0/Modules/FindPackageHandleStandardArgs.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.0/Modules/FindPackageMessage.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.0/Modules/FindPkgConfig.cmake"
+			"path" : "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeParseImplicitLinkInfo.cmake"
 		},
 		{
 			"isCMake" : true,

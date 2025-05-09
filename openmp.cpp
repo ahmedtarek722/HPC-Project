@@ -40,21 +40,8 @@ void findMinMax(const vector<double>& pixels, double& minVal, double& maxVal) {
 }
 
 
-Mat kmeans1D_OpenMP(const Mat &gray, int K, int maxIters = 100, double epsilon = 1e-4) {
-    int rows= gray.rows;
-    int cols= gray.cols;
+Mat kmeans1D_OpenMP(vector<double> &pixels,int rows,int cols,int K, int maxIters = 100, double epsilon = 1e-4) {
     int N= rows * cols;
-
-    // Flatten pixels into vector<double>
-    vector<double> pixels(N);
-    #pragma omp parallel for schedule(static)
-    for (int r= 0; r< rows; ++r) {
-        const uchar* ptr= gray.ptr<uchar>(r);
-        int base= r * cols;
-        for (int c= 0; c < cols; ++c) {
-            pixels[base + c]= static_cast<double>(ptr[c]);
-        }
-    }
 
     // Initialize means evenly over intensity range
     double minVal, maxVal;
@@ -156,7 +143,7 @@ int main() {
     auto t0 = Clock::now();
 
     // Run OpenMP K-Means
-    Mat segmented = kmeans1D_OpenMP(gray, K);
+    Mat segmented = kmeans1D_OpenMP(pixels,gray.rows,gray.cols,K);
 
     //Start timer1 to calculate computational time 
     auto t1 = Clock::now();

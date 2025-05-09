@@ -15,7 +15,6 @@ void convertToGray(const Mat& img, Mat& gray, vector<double>& pixels) {
     gray.create(rows, cols, CV_8U);
     pixels.clear();
     pixels.reserve(rows * cols);
-
     for (int r = 0; r < rows; ++r) {
         // pointer to BGR triples
         const Vec3b* bgrPtr = img.ptr<Vec3b>(r);
@@ -40,7 +39,7 @@ void findMinMax(const vector<double>& pixels, double& minVal, double& maxVal) {
     }
 }
 
-Mat kmeans1D(const Mat & /*gray unused*/, int K,const vector<double>& pixels_in,int rows, int cols,int maxIters, double epsilon) {
+Mat kmeans1D(int K,const vector<double>& pixels_in,int rows, int cols,int maxIters, double epsilon) {
     int N = rows * cols;
     
     vector<double> means(K);
@@ -56,7 +55,7 @@ Mat kmeans1D(const Mat & /*gray unused*/, int K,const vector<double>& pixels_in,
     vector<int> counts(K);
     // K‐Means loop
     for (int iter = 0; iter < maxIters; ++iter) {
-        // Assignment step
+        // Assignment step -> to find the shortest distance to get the optimum cluster
         for (int i = 0; i < N; ++i) {
             double bestDist = numeric_limits<double>::max();
             int bestK = 0;
@@ -114,7 +113,7 @@ int main() {
     string outputPath = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_test_seq.jpg";
     int K = 3;
     int maxIters = 100;
-    double epsilon = 1e-4;
+    double epsilon = 1e-4; //equal to 0.0001
 
     Mat img = imread(inputPath);
     if (img.empty()) {
@@ -128,7 +127,7 @@ int main() {
     convertToGray(img, gray, pixels);
     // Run K-Means
     auto t0 = Clock::now();
-    Mat segmented = kmeans1D(gray, K,pixels,gray.rows, gray.cols,maxIters, epsilon);
+    Mat segmented = kmeans1D(K,pixels,gray.rows, gray.cols,maxIters, epsilon);
     auto t1 = Clock::now();
     chrono::duration<double> elapsed = t1 - t0;
     cout << "Segmentation took " << elapsed.count() << " seconds.\n";
