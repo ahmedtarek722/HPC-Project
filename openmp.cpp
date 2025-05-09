@@ -9,6 +9,37 @@ using namespace cv;
 using namespace std;
 using Clock = chrono::high_resolution_clock; 
 
+void convertToGray(const Mat& img, Mat& gray, vector<double>& pixels) {
+    int rows = img.rows, cols = img.cols;
+    gray.create(rows, cols, CV_8U);
+    pixels.clear();
+    pixels.reserve(rows * cols);
+
+    for (int r = 0; r < rows; ++r) {
+        // pointer to BGR triples
+        const Vec3b* bgrPtr = img.ptr<Vec3b>(r);
+        // pointer to output gray row
+        uchar* grayPtr = gray.ptr<uchar>(r);
+        for (int c = 0; c < cols; ++c) {
+            // standard_luminance_formula
+            double lum = 0.299 * bgrPtr[c][2]+ 0.587 * bgrPtr[c][1]+ 0.114 * bgrPtr[c][0];
+            grayPtr[c] = static_cast<uchar>(round(lum));
+            pixels.push_back(lum);
+        }
+    }
+}
+
+
+void findMinMax(const vector<double>& pixels, double& minVal, double& maxVal) {
+    minVal= numeric_limits<double>::max();
+    maxVal= numeric_limits<double>::lowest();
+    for (double v : pixels) {
+        if(v<minVal)minVal= v;
+        if(v>maxVal)maxVal= v;
+    }
+}
+
+
 Mat kmeans1D_OpenMP(const Mat &gray, int K, int maxIters = 100, double epsilon = 1e-4) {
     int rows= gray.rows;
     int cols= gray.cols;
@@ -27,7 +58,7 @@ Mat kmeans1D_OpenMP(const Mat &gray, int K, int maxIters = 100, double epsilon =
 
     // Initialize means evenly over intensity range
     double minVal, maxVal;
-    minMaxLoc(gray, &minVal, &maxVal);
+    findMinMax(pixels, minVal, maxVal);
     vector<double> means(K);
     for (int k= 0; k < K; ++k) {
         means[k] = minVal + (maxVal - minVal) * (k + 0.5) / K;
@@ -64,14 +95,12 @@ Mat kmeans1D_OpenMP(const Mat &gray, int K, int maxIters = 100, double epsilon =
         {
             vector<double> local_sums(K, 0.0);
             vector<int> local_counts(K, 0);
-
             #pragma omp for schedule(static)
             for (int i = 0; i < N; ++i) {
                 int k = labels[i];
                 local_sums[k] += pixels[i];
                 local_counts[k]++;
             }
-
             #pragma omp critical
             {
                 for (int k = 0; k < K; ++k) {
@@ -119,7 +148,9 @@ int main() {
         cerr << "Error: Could not open or find the image.\n";
         return -1;
     }
-    Mat gray; cvtColor(img, gray, COLOR_BGR2GRAY);
+    Mat gray; 
+    vector<double> pixels;
+    convertToGray(img, gray, pixels);
 
     //Start timer0 to calculate computational time 
     auto t0 = Clock::now();

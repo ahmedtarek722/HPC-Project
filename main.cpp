@@ -3,45 +3,65 @@
 #include <vector>
 #include <cmath>
 #include <limits>
+#include <chrono>
 
 using namespace cv;
 using namespace std;
-using Clock = chrono::high_resolution_clock; 
+using Clock = chrono::high_resolution_clock;
 
-Mat kmeans1D(const Mat &gray, int K, int maxIters, double epsilon) {
-    int rows = gray.rows;
-    int cols = gray.cols;
-    int N = rows * cols;
 
-    // Flatten pixels into vector<double>
-    vector<double> pixels;
-    pixels.reserve(N);
+void convertToGray(const Mat& img, Mat& gray, vector<double>& pixels) {
+    int rows = img.rows, cols = img.cols;
+    gray.create(rows, cols, CV_8U);
+    pixels.clear();
+    pixels.reserve(rows * cols);
+
     for (int r = 0; r < rows; ++r) {
-        const uchar* ptr = gray.ptr<uchar>(r);
+        // pointer to BGR triples
+        const Vec3b* bgrPtr = img.ptr<Vec3b>(r);
+        // pointer to output gray row
+        uchar* grayPtr = gray.ptr<uchar>(r);
         for (int c = 0; c < cols; ++c) {
-            pixels.push_back(static_cast<double>(ptr[c]));
+            // standard_luminance_formula
+            double lum = 0.299 * bgrPtr[c][2]+ 0.587 * bgrPtr[c][1]+ 0.114 * bgrPtr[c][0];
+            grayPtr[c] = static_cast<uchar>(round(lum));
+            pixels.push_back(lum);
         }
     }
+}
 
-    // Initialize means: pick K pixels evenly spaced in sorted range
-    double minVal, maxVal;
-    minMaxLoc(gray, &minVal, &maxVal);
+
+void findMinMax(const vector<double>& pixels, double& minVal, double& maxVal) {
+    minVal= numeric_limits<double>::max();
+    maxVal= numeric_limits<double>::lowest();
+    for (double v : pixels) {
+        if(v<minVal)minVal= v;
+        if(v>maxVal)maxVal= v;
+    }
+}
+
+Mat kmeans1D(const Mat & /*gray unused*/, int K,const vector<double>& pixels_in,int rows, int cols,int maxIters, double epsilon) {
+    int N = rows * cols;
+    
     vector<double> means(K);
+    // Initialize means evenly in the [minVal, maxVal] range
+    double minVal, maxVal;
+    findMinMax(pixels_in, minVal, maxVal);
     for (int k = 0; k < K; ++k) {
         means[k] = minVal + (maxVal - minVal) * (k + 0.5) / K;
     }
 
-    vector<int> labels(N, 0);
+    vector<int> labels(N);
     vector<double> sums(K);
     vector<int> counts(K);
-
+    // K‐Means loop
     for (int iter = 0; iter < maxIters; ++iter) {
         // Assignment step
         for (int i = 0; i < N; ++i) {
             double bestDist = numeric_limits<double>::max();
             int bestK = 0;
             for (int k = 0; k < K; ++k) {
-                double d = abs(pixels[i] - means[k]);
+                double d = fabs(pixels_in[i] - means[k]);
                 if (d < bestDist) {
                     bestDist = d;
                     bestK = k;
@@ -50,33 +70,33 @@ Mat kmeans1D(const Mat &gray, int K, int maxIters, double epsilon) {
             labels[i] = bestK;
         }
 
-        // Initialize sums & counts
+        // Zero‐out accumulators
         fill(sums.begin(), sums.end(), 0.0);
         fill(counts.begin(), counts.end(), 0);
 
-        // Update step: accumulate
+        // Update step: accumulate sums and counts
         for (int i = 0; i < N; ++i) {
             int k = labels[i];
-            sums[k] += pixels[i];
+            sums[k] += pixels_in[i];
             counts[k]++;
         }
 
-        // Compute new means and check convergence
+        // Recompute means and check convergence
         double maxShift = 0.0;
         for (int k = 0; k < K; ++k) {
             if (counts[k] > 0) {
                 double newMean = sums[k] / counts[k];
-                maxShift = max(maxShift, abs(newMean - means[k]));
+                maxShift = max(maxShift, fabs(newMean - means[k]));
                 means[k] = newMean;
             }
         }
         if (maxShift < epsilon) {
-            cout << "Converged in " << iter + 1 << " iterations.\n";
+            cout << "Converged in " << iter+1 << " iterations.\n";
             break;
         }
     }
 
-    // Reconstruct segmented image
+    // Build output segmented image
     Mat seg(rows, cols, CV_8U);
     int idx = 0;
     for (int r = 0; r < rows; ++r) {
@@ -90,37 +110,30 @@ Mat kmeans1D(const Mat &gray, int K, int maxIters, double epsilon) {
 }
 
 int main() {
-    string inputPath = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/test.jpg";
+    string inputPath  = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/test.jpg";
+    string outputPath = "D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_test_seq.jpg";
     int K = 3;
-    string outputPath ="D:/AINSHAMS_SEMESTERS/semester 10/High performance computing/project/out_test_seq.jpg";
     int maxIters = 100;
     double epsilon = 1e-4;
 
-    // Read and convert to grayscale
     Mat img = imread(inputPath);
     if (img.empty()) {
         cerr << "Error: Could not open or find the image.\n";
         return -1;
     }
+
+    // Manual grayscale conversion + flatten
     Mat gray;
-    cvtColor(img, gray, COLOR_BGR2GRAY);
-
-    //Start timer0 to calculate computational time 
+    vector<double> pixels;
+    convertToGray(img, gray, pixels);
+    // Run K-Means
     auto t0 = Clock::now();
-
-    // Run K-Means segmentation
-    Mat segmented = kmeans1D(gray, K, maxIters, epsilon);
-
-    //Start timer1 to calculate computational time 
+    Mat segmented = kmeans1D(gray, K,pixels,gray.rows, gray.cols,maxIters, epsilon);
     auto t1 = Clock::now();
     chrono::duration<double> elapsed = t1 - t0;
-    cout << "Segmentation took " 
-         << elapsed.count() << " seconds.\n";
+    cout << "Segmentation took " << elapsed.count() << " seconds.\n";
 
-
-    // Save result
     imwrite(outputPath, segmented);
     cout << "Segmented image saved to " << outputPath << endl;
-
     return 0;
 }
